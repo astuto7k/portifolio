@@ -20,7 +20,7 @@ export const Contact: React.FC = () => {
     { name: 'X / Twitter', icon: <XIcon />, href: 'https://x.com/Guga_028', label: '@Guga_028' },
     { name: 'YouTube', icon: <Youtube size={20} />, href: 'https://www.youtube.com/@Guga028', label: '@Guga028' },
     { name: 'TikTok', icon: <TikTokIcon />, href: 'https://www.tiktok.com/@guga_028', label: '@guga_028' },
-    { name: 'Discord', icon: <MessageSquare size={20} />, href: 'https://discord.com/users/168572769', label: 'guga_028' },
+    { name: 'Discord', icon: <MessageSquare size={20} />, href: 'https://discord.com/users/168572769', label: 'guga028' },
     { name: 'Email', icon: <Mail size={20} />, href: 'mailto:contato.guga028@gmail.com', label: 'contato.guga028@gmail.com' },
   ];
 
