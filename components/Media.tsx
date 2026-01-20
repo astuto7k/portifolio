@@ -5,12 +5,12 @@ import { ExternalLink, Play } from 'lucide-react';
 const mediaArticles = [
   {
     outlet: "G1 Globo",
-    title: "Roblox atrai desenvolvedores de até 12 anos",
+    title: "“Roblox” attracts developers as young as 12 by offering the opportunity to create games and earn money",
     href: "https://g1.globo.com/pop-arte/games/noticia/2021/01/08/roblox-atrai-desenvolvedores-de-ate-12-anos-com-possibilidade-de-criar-jogos-e-ganhar-dinheiro.ghtml"
   },
   {
     outlet: "Medium",
-    title: "Holofotes em Guga028 e Phoenix RDN",
+    title: "Spotlights in Guga028",
     href: "https://medium.com/roblox-developer-portugu%C3%AAs/holofotes-em-guga028-e-phoenix-rdn-2109378342a8"
   },
   {
