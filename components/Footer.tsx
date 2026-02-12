@@ -20,6 +20,22 @@ export const Footer: React.FC = () => {
           Crafted for the virtual age.
         </p>
       </div>
+<div className="text-center space-y-2">
+          <p className="font-inter text-[11px] font-bold tracking-widest text-white/20 uppercase">
+            {new Date().getFullYear()} Hg.dev - All rights reserved.
+          </p>
+          <p className="font-inter text-[11px] text-white/30">
+            <a
+              href="https://discord.com/channels/@me/1057488804497326152"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#2B9FE6] transition-colors"
+            >
+              powered by Astuto
+            </a>
+          </p>
+        </div>
+      
     </footer>
   );
 };
