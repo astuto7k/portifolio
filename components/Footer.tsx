@@ -21,9 +21,7 @@ export const Footer: React.FC = () => {
         </p>
       </div>
 <div className="text-center space-y-2">
-          <p className="font-inter text-[11px] font-bold tracking-widest text-white/20 uppercase">
-            {new Date().getFullYear()} Hg.dev - All rights reserved.
-          </p>
+          
           <p className="font-inter text-[11px] text-white/30">
             <a
               href="https://discord.com/channels/@me/1057488804497326152"
