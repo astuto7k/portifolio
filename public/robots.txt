@@ -1,0 +1,19 @@
+# OpenAI search discovery and user-requested browsing
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# All other standards-compliant crawlers, including GPTBot
+User-agent: *
+Allow: /
+
+Sitemap: https://www.guga028.com/sitemap.xml

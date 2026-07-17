@@ -1,50 +1,93 @@
-
 import React from 'react';
+import { ArrowDownRight, Sparkles } from 'lucide-react';
 
-export const About: React.FC = () => {
+interface AboutContentProps {
+  preview?: boolean;
+  titleId?: string;
+}
+
+const AboutContent: React.FC<AboutContentProps> = ({ preview = false, titleId }) => {
+  const reveal = (direction: 'left' | 'scale' | 'up') => (preview ? undefined : direction);
+
   return (
-    <section id="about" className="py-20 md:py-24 px-6 bg-brand-dark relative overflow-hidden">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-        <div className="relative group reveal reveal-left active order-2 md:order-1">
-          <div className="absolute -inset-4 bg-brand-red/10 rounded-xl blur-3xl group-hover:bg-brand-red/20 transition-all duration-500"></div>
-          <img 
-            src="https://i.ibb.co/4nx2mFcB/IMG-6362.jpg" 
-            alt="Gustavo Cantino" 
-            className="relative rounded-2xl border border-white/10 w-full aspect-[4/5] object-cover shadow-2xl grayscale hover:grayscale-0 transition-all duration-1000"
-            loading="lazy"
-          />
-          <div className="absolute -bottom-6 -right-6 glass-card p-4 md:p-6 rounded-2xl hidden sm:block reveal reveal-up active stagger-3">
-            <p className="font-orbitron text-2xl md:text-4xl font-black text-brand-red">10+</p>
-            <p className="text-[8px] md:text-[10px] text-white/40 uppercase tracking-[0.2em] mt-1">Years in Roblox</p>
+    <>
+      <div className="section__rail" aria-hidden="true">
+        <span>01</span>
+        <i />
+        <p>Origin story</p>
+      </div>
+
+      <div className="container about__grid">
+        <div className="about__visual" data-reveal={reveal('left')}>
+          <div className="about-photo">
+            <div className="about-photo__outline" aria-hidden="true" />
+            <img
+              src="/images/gustavo-cantino.jpg"
+              alt={preview ? '' : 'Gustavo Cantino'}
+              width="1330"
+              height="2364"
+              loading="lazy"
+            />
+            <div className="about-photo__caption">
+              <span>Gustavo Cantino</span>
+              <span>Game Producer</span>
+            </div>
+          </div>
+
+          <div className="about__years" data-reveal={reveal('scale')}>
+            <Sparkles size={18} aria-hidden="true" />
+            <strong>10+</strong>
+            <span>Years in Roblox</span>
           </div>
         </div>
 
-        <div className="space-y-6 md:space-y-8 reveal reveal-right active stagger-1 order-1 md:order-2 text-center md:text-left">
-          <div className="space-y-3 md:space-y-4">
-            <h3 className="font-orbitron text-brand-red font-bold tracking-[0.4em] uppercase text-[9px] md:text-[10px]">Background</h3>
-            <h2 className="font-orbitron text-3xl md:text-5xl font-black leading-tight uppercase">FROM PLAYER <br /><span className="text-brand-red">TO PIONEER.</span></h2>
+        <div className="about__copy">
+          <div data-reveal={reveal('up')}>
+            <p className="eyebrow">Background</p>
+            <h2 id={titleId} className="section-title">
+              From player<br />
+              <span>to pioneer.</span>
+            </h2>
           </div>
 
-          <p className="text-white/50 text-base md:text-lg leading-relaxed font-inter font-light">
-            Starting at age 11, I turned a curiosity for virtual worlds into a record-breaking career. By 15, I launched my first major project, laying the foundation for <span className="text-white font-bold">Corridor of Hell</span>.
-          </p>
+          <div className="about__story" data-reveal={reveal('up')}>
+            <p>
+              Starting at age 11, I turned a curiosity for virtual worlds into a record-breaking career. By 15, I launched my first major project, laying the foundation for <strong>Corridor of Hell</strong>.
+            </p>
+            <p>
+              Today, with over <strong>70 Billion visits</strong>, my work focuses on bridging high-fidelity production with massive community growth.
+            </p>
+          </div>
 
-          <p className="text-white/50 text-base md:text-lg leading-relaxed font-inter font-light">
-            Today, with over <span className="text-brand-red font-bold">55 Billion visits</span>, my work focuses on bridging high-fidelity production with massive community growth.
-          </p>
+          <div className="about__focus" data-reveal={reveal('up')}>
+            <div>
+              <p className="eyebrow">Main focus</p>
+              <p>Game Production, Marketing Strategy &amp; Global Content Creation.</p>
+            </div>
+            <ArrowDownRight size={28} aria-hidden="true" />
+          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 pt-6 md:pt-8 border-t border-white/5 text-left">
-            <div>
-              <h4 className="font-orbitron text-white text-[9px] md:text-[10px] font-bold mb-2 uppercase tracking-widest">Main Focus</h4>
-              <p className="text-[11px] md:text-xs text-white/30 leading-relaxed font-inter">Game Production, Marketing Strategy & Global Content Creation.</p>
-            </div>
-            <div>
-             
-            
-            </div>
+          <div className="about__signature" aria-hidden="true" data-reveal={reveal('up')}>
+            <span>Player</span><i />
+            <span>Builder</span><i />
+            <span>Producer</span>
           </div>
         </div>
       </div>
+    </>
+  );
+};
+
+export const AboutPortalPreview: React.FC = () => (
+  <div className="hero__portal section about" aria-hidden="true" data-nosnippet="">
+    <AboutContent preview />
+  </div>
+);
+
+export const About: React.FC = () => {
+  return (
+    <section id="about" className="section about" aria-labelledby="about-title">
+      <AboutContent titleId="about-title" />
     </section>
   );
 };

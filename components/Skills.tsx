@@ -1,39 +1,76 @@
-
 import React from 'react';
-import { Gamepad2, Layers, Cpu, Video, TrendingUp, Users, Presentation, Coins } from 'lucide-react';
+import { Coins, Cpu, Gamepad2, Layers, Presentation, TrendingUp, Users, Video } from 'lucide-react';
 
 const skillSet = [
-  { name: "Game Production", icon: <Gamepad2 size={20} /> },
-  { name: "Monetization specialist", icon: <Coins size={20} /> },
-  { name: "Social Growth", icon: <TrendingUp size={20} /> },
-  { name: "Influencer", icon: <Presentation size={20} /> },
-  { name: "Roblox Studio", icon: <Cpu size={20} /> },
-  { name: "Blender 3D", icon: <Layers size={20} /> },
-  { name: "Video Production", icon: <Video size={20} /> },
-  { name: "Community Leader", icon: <Users size={20} /> },
+  { name: 'Game Production', icon: Gamepad2 },
+  { name: 'Monetization Specialist', icon: Coins },
+  { name: 'Social Growth', icon: TrendingUp },
+  { name: 'Influencer', icon: Presentation },
+  { name: 'Roblox Studio', icon: Cpu },
+  { name: 'Blender 3D', icon: Layers },
+  { name: 'Video Production', icon: Video },
+  { name: 'Community Leader', icon: Users },
+];
+
+const tickerTerms = [
+  'Game Production',
+  'Monetization',
+  'Community Growth',
+  'Content Creation',
+  'Roblox Studio',
+  'Blender 3D',
+  'Social Growth',
+  'Video Production',
+  'Creative Direction',
+  'Viral Marketing',
+  'Live Operations',
+  'UGC Strategy',
+  'Audience Growth',
+  'Game Analytics',
+  'Player Retention',
+  'Global Launches',
 ];
 
 export const Skills: React.FC = () => {
   return (
-    <section id="skills" className="py-24 px-6 bg-brand-black">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16 space-y-4 reveal reveal-up active">
-          <h3 className="font-orbitron text-brand-red font-bold tracking-[0.4em] uppercase text-[10px]">Abilities</h3>
-          <h2 className="font-orbitron text-4xl md:text-5xl font-black uppercase">Core <span className="text-brand-red">Skills</span></h2>
+    <section id="skills" className="section skills" aria-labelledby="skills-title">
+      <div className="skills__wordmark" aria-hidden="true">ABILITIES</div>
+
+      <div className="container">
+        <div className="skills__header" data-reveal="up">
+          <div>
+            <p className="eyebrow">Abilities / 04</p>
+            <h2 id="skills-title" className="section-title">Core<br /><span>skills.</span></h2>
+          </div>
+          <p>Game Production, Marketing Strategy &amp; Global Content Creation.</p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {skillSet.map((skill, idx) => (
-            <div 
-              key={idx} 
-              className={`group glass-card p-8 rounded-2xl flex flex-col items-center justify-center gap-4 text-center hover:bg-brand-red/5 hover:border-brand-red/20 transition-all duration-500 reveal reveal-up active stagger-${(idx % 4) + 1}`}
-            >
-              <div className="text-white/40 group-hover:text-brand-red group-hover:scale-110 transition-all duration-300">
-                {skill.icon}
-              </div>
-              <p className="font-orbitron text-[9px] font-bold uppercase tracking-widest text-white/40 group-hover:text-white transition-colors">
-                {skill.name}
-              </p>
+        <div className="skills__grid">
+          {skillSet.map((skill, index) => {
+            const Icon = skill.icon;
+            return (
+              <article key={skill.name} className="skill-card" data-reveal="up">
+                <div className="skill-card__top">
+                  <span>{String(index + 1).padStart(2, '0')}</span>
+                </div>
+                <Icon size={28} strokeWidth={1.4} aria-hidden="true" />
+                <h3>{skill.name}</h3>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="skills__ticker" aria-hidden="true">
+        <div className="skills__ticker-track">
+          {[0, 1].map((group) => (
+            <div key={group} className="skills__ticker-group">
+              {tickerTerms.map((term) => (
+                <React.Fragment key={`${group}-${term}`}>
+                  <span>{term}</span>
+                  <i />
+                </React.Fragment>
+              ))}
             </div>
           ))}
         </div>

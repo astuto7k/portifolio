@@ -2,19 +2,20 @@
 export default {
     content: [
         "./index.html",
-        "./**/*.{js,ts,jsx,tsx}",
+        "./App.tsx",
+        "./index.tsx",
+        "./components/**/*.{js,ts,jsx,tsx}",
     ],
     theme: {
         extend: {
             colors: {
-                'brand-black': '#0b0b0b',
-                'brand-red': '#e10600',
+                'brand-black': '#070707',
+                'brand-red': '#f12b1f',
                 'brand-dark': '#121212',
             },
             fontFamily: {
                 orbitron: ['Orbitron', 'sans-serif'],
                 inter: ['Inter', 'sans-serif'],
-                poppins: ['Poppins', 'sans-serif'],
             },
             animation: {
                 'float-slow': 'floatSlow 15s ease-in-out infinite',

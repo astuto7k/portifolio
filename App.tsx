@@ -1,7 +1,7 @@
-
 import React, { useEffect } from 'react';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
+import { CreatorProfile } from './components/CreatorProfile';
 import { Projects } from './components/Projects';
 import { Experience } from './components/Experience';
 import { Skills } from './components/Skills';
@@ -10,35 +10,49 @@ import { Media } from './components/Media';
 import { Contact } from './components/Contact';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
+import { AmbientLayer, ScrollProgress } from './components/Ambience';
 
 const App: React.FC = () => {
   useEffect(() => {
-    const observerOptions = {
-      threshold: 0.15,
-      rootMargin: "0px"
-    };
+    const root = document.documentElement;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const revealElements = Array.from(document.querySelectorAll<HTMLElement>('[data-reveal]'));
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
-      });
-    }, observerOptions);
+    if (reducedMotion || !('IntersectionObserver' in window)) {
+      revealElements.forEach((element) => element.setAttribute('data-visible', 'true'));
+    } else {
+      root.classList.add('motion-ready');
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.setAttribute('data-visible', 'true');
+            observer.unobserve(entry.target);
+          });
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -8% 0px' },
+      );
 
-    const revealedElements = document.querySelectorAll('.reveal');
-    revealedElements.forEach((el) => observer.observe(el));
+      revealElements.forEach((element) => observer.observe(element));
 
-    return () => observer.disconnect();
+      return () => {
+        observer.disconnect();
+        root.classList.remove('motion-ready');
+      };
+    }
   }, []);
 
   return (
-    <div className="min-h-screen bg-brand-black font-inter selection:bg-brand-red selection:text-white">
+    <div className="site-shell">
+      <a className="skip-link" href="#main-content">Skip to content</a>
+      <ScrollProgress />
+      <AmbientLayer />
       <Navbar />
-      
-      <main className="relative z-10">
+
+      <main id="main-content">
         <Hero />
         <About />
+        <CreatorProfile />
         <Projects />
         <Stats />
         <Experience />
