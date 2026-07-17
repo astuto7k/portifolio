@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
-import { CreatorProfile } from './components/CreatorProfile';
+import { CreatorFaq, CreatorProfile } from './components/CreatorProfile';
 import { Projects } from './components/Projects';
 import { Experience } from './components/Experience';
 import { Skills } from './components/Skills';
@@ -58,6 +58,7 @@ const App: React.FC = () => {
         <Experience />
         <Skills />
         <Media />
+        <CreatorFaq />
         <Contact />
       </main>
 

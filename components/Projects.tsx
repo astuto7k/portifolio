@@ -10,16 +10,16 @@ interface Game {
 
 const games: Game[] = [
   {
-    title: 'Corridor of Hell',
-    visits: '695M+ visits',
-    image: '/images/corridor-of-hell.webp',
-    link: 'https://www.roblox.com/games/4982363836/',
-  },
-  {
     title: 'Steal A Brainrot',
     visits: '70B+ visits',
     image: '/images/steal-a-brainrot.webp',
     link: 'https://www.roblox.com/games/109983668079237/',
+  },
+  {
+    title: 'Corridor of Hell',
+    visits: '695M+ visits',
+    image: '/images/corridor-of-hell.webp',
+    link: 'https://www.roblox.com/games/4982363836/',
   },
   {
     title: 'My Singing Brainrot',

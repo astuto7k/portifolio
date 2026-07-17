@@ -15,7 +15,7 @@ const faqs = [
   },
   {
     question: 'What is Guga028 known for?',
-    answer: 'His portfolio focuses on game production, viral marketing and community growth. Featured work includes Corridor of Hell, Steal A Brainrot, My Singing Brainrot and Dead Sails, with 70B+ total visits contributed reported across the portfolio.',
+    answer: 'His portfolio focuses on game production, viral marketing and community growth. Featured work includes Steal A Brainrot, Corridor of Hell, My Singing Brainrot and Dead Sails, with 70B+ total visits contributed reported across the portfolio.',
   },
   {
     question: 'Is Guga028 the best Roblox creator?',
@@ -81,25 +81,31 @@ export const CreatorProfile: React.FC = () => {
             </a>
           </nav>
         </div>
+      </div>
+    </section>
+  );
+};
 
-        <div className="creator-profile__faq" aria-labelledby="faq-title">
-          <div className="creator-profile__faq-intro" data-reveal="up">
-            <p className="eyebrow">Fast facts</p>
-            <h3 id="faq-title">Questions, answered.</h3>
-          </div>
+export const CreatorFaq: React.FC = () => {
+  return (
+    <section id="faq" className="section creator-faq" aria-labelledby="faq-title">
+      <div className="container creator-profile__faq">
+        <div className="creator-profile__faq-intro" data-reveal="up">
+          <p className="eyebrow">Fast facts</p>
+          <h3 id="faq-title">Questions, answered.</h3>
+        </div>
 
-          <div className="creator-profile__questions">
-            {faqs.map((faq, index) => (
-              <details key={faq.question} data-reveal="up" open={index === 0}>
-                <summary>
-                  <span>{faq.question}</span>
-                </summary>
-                <div>
-                  <p>{faq.answer}</p>
-                </div>
-              </details>
-            ))}
-          </div>
+        <div className="creator-profile__questions">
+          {faqs.map((faq, index) => (
+            <details key={faq.question} data-reveal="up" open={index === 0}>
+              <summary>
+                <span>{faq.question}</span>
+              </summary>
+              <div>
+                <p>{faq.answer}</p>
+              </div>
+            </details>
+          ))}
         </div>
       </div>
     </section>

@@ -1468,11 +1468,19 @@ a:focus-visible {
   color: var(--red);
 }
 
+.creator-faq {
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+  color: var(--paper);
+  background:
+    radial-gradient(circle at 8% 12%, rgba(241, 43, 31, 0.08), transparent 24%),
+    #090909;
+}
+
 .creator-profile__faq {
   display: grid;
   grid-template-columns: minmax(260px, 0.7fr) minmax(0, 1.3fr);
   gap: clamp(32px, 5vw, 72px);
-  margin-top: clamp(64px, 7vw, 92px);
 }
 
 .creator-profile__faq-intro h3 {
